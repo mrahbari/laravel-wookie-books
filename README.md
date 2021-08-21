@@ -1,7 +1,7 @@
 
 ### Objective
-
-Your assignment is to implement a bookstore REST API using PHP and Laravel.
+I just wanted to cover a sample of the code I did in 3-4 hours as a sample.
+It's a REST API using PHP and Laravel 8.x
 
 ### Tasks
 
@@ -29,5 +29,3 @@ Your assignment is to implement a bookstore REST API using PHP and Laravel.
 -   Write API tests for all implemented endpoints
 -   Make sure that users may only unpublish their own books
 -   Bonus: Make sure the user _Darth Vader_ is unable to publish his work on Wookie Books
-
-
