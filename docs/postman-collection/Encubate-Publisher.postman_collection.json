@@ -1,0 +1,863 @@
+{
+	"info": {
+		"_postman_id": "5260747c-8ade-4f1c-b8f7-2b819b0394f4",
+		"name": "Encubate-Publisher",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Publisher-Authors-Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Lamont",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "{{page_limit}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Authors-Index-Searchable & Page Limit",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors?q=Lamont&limit={{page_limit}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Lamont"
+								},
+								{
+									"key": "limit",
+									"value": "{{page_limit}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Authors-Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors/{{author_id_to_show}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"{{author_id_to_show}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Strosin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Authors-Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image_url\":\"https://media-exp1.licdn.com/dms/image/C4E03AQF3VpOEM7A3wA/profile-displayphoto-shrink_100_100/0/1516937056157?e=1634774400%26v=beta%26t=Jp8YZKB9o6NhQp4orIzJkXGcOH4_K1BkwMxNlOy3fMU\",\n    \"first_name\":\"Torn\",\n    \"last_name\":\"Hamilton\",\n    \"status\":\"1\",\n    \"priority\":\"10\",\n    \"created_by\":\"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Authors-Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\":\"https://media-exp1.licdn.com/dms/image/C4E03AQF3VpOEM7A3wA/profile-displayphoto-shrink_100_100/0/1516937056157?e=1634774400%26v=beta%26t=Jp8YZKB9o6NhQp4orIzJkXGcOH4_K1BkwMxNlOy3fMU\",\n    \"first_name\":\"Mikel\",\n    \"last_name\":\"Stewen\",\n    \"status\":\"1\",\n    \"priority\":\"20\",\n    \"created_by\":\"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors/{{author_id_to_update}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"{{author_id_to_update}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Authors-Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors/{{author_id_to_delete}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"{{author_id_to_delete}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Strosin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors-Not Permitted",
+			"item": [
+				{
+					"name": "Publisher-Authors-Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\":\"https://media-exp1.licdn.com/dms/image/C4E03AQF3VpOEM7A3wA/profile-displayphoto-shrink_100_100/0/1516937056157?e=1634774400%26v=beta%26t=Jp8YZKB9o6NhQp4orIzJkXGcOH4_K1BkwMxNlOy3fMU\",\n    \"first_name\":\"Mike1\",\n    \"last_name\":\"Star\",\n    \"status\":\"1\",\n    \"priority\":\"20\",\n    \"created_by\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors/{{author_id_to_update}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"{{author_id_to_update}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Authors-Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/authors/{{author_id_to_delete}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authors",
+								"{{author_id_to_delete}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Strosin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token_darth_not_permitted_to_publish}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Publisher-Books-Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Lamont",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "{{page_limit}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Books-Index-Searchable & Page Limit",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books?q=Prof&limit={{page_limit}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Prof"
+								},
+								{
+									"key": "limit",
+									"value": "{{page_limit}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Books-Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books/{{book_id_to_show}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id_to_show}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Strosin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Books-Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"author_id\": 7,\n    \"image_url\":\"https://media-exp1.licdn.com/dms/image/C4E03AQF3VpOEM7A3wA/profile-displayphoto-shrink_100_100/0/1516937056157?e=1634774400%26v=beta%26t=Jp8YZKB9o6NhQp4orIzJkXGcOH4_K1BkwMxNlOy3fMU\",\n    \"title\":\"Orage Girl\",\n    \"description\":\"Grief, they used to it!' pleaded poor Alice began to cry again. 'You ought to have finished,' said the King say in a deep voice, 'are done with blacking, I believe.' 'Boots and shoes under the.\",\n    \"price\": \"125.00\",\n    \"status\":\"1\",\n    \"priority\":\"10\",\n    \"created_by\":\"11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Books-Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\":\"https://media-exp1.licdn.com/dms/image/C4E03AQF3VpOEM7A3wA/profile-displayphoto-shrink_100_100/0/1516937056157?e=1634774400%26v=beta%26t=Jp8YZKB9o6NhQp4orIzJkXGcOH4_K1BkwMxNlOy3fMU\",\n    \"first_name\":\"Mikel\",\n    \"last_name\":\"Stewen\",\n    \"status\":\"1\",\n    \"priority\":\"20\",\n    \"created_by\":\"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books/{{book_id_to_update}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id_to_update}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Books-Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books/{{book_id_to_delete}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id_to_delete}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Strosin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Books-UnPublish",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books/un-publish/{{book_id_to_unpublish}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"un-publish",
+								"{{book_id_to_unpublish}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Strosin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books-Not Permitted",
+			"item": [
+				{
+					"name": "Publisher-Books-Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image\":\"https://media-exp1.licdn.com/dms/image/C4E03AQF3VpOEM7A3wA/profile-displayphoto-shrink_100_100/0/1516937056157?e=1634774400%26v=beta%26t=Jp8YZKB9o6NhQp4orIzJkXGcOH4_K1BkwMxNlOy3fMU\",\n    \"first_name\":\"Mike1\",\n    \"last_name\":\"Star\",\n    \"status\":\"1\",\n    \"priority\":\"20\",\n    \"created_by\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books/{{book_id_to_update}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id_to_update}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publisher-Books-Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/books/{{book_id_to_delete}}",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"books",
+								"{{book_id_to_delete}}"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Strosin",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token_darth_not_permitted_to_publish}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Login With Password",
+			"item": [
+				{
+					"name": "User Login-Will Dzama - Permitted!",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "g4BwrEMQ0nflYqI2Fjnv3C7cV522XcPsOgJvHyWv",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "will.dzama@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/oauth/token",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login-Darth Varder - Not Permitted to push book in system!",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "g4BwrEMQ0nflYqI2Fjnv3C7cV522XcPsOgJvHyWv",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "vader@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/oauth/token",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User-Detail-Permited",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_will_permited_to_publish}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/profile",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User-Detail-Not Permited",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_darth_not_permitted_to_publish}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/profile",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User-Detail-Not Permited Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_darth_not_permitted_to_publish}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{encubate_host}}/api/v1/profile",
+							"host": [
+								"{{encubate_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token_will_permited_to_publish}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token_will_permited_to_publish",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiM2YxNzFkZmIyZDAxOGI5NzkzZmI0YWVkMDM3MTAyNjZmYjYzMDVhOWQwYWJkNzQ2NTYyNjY1ZjQ5MTE4Y2FkYmI0ZTE0MzQ0MGUxZThmNWEiLCJpYXQiOjE2Mjk0NjEyMTQuMTAzMDY1LCJuYmYiOjE2Mjk0NjEyMTQuMTAzMDY3LCJleHAiOjE2NjA5OTcyMTQuMDkyODM1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.GHr-9RxvVtalMmu6ePzzga98KUntCS56yz3nXvqdB50o8-CU9KjS0Dn-2v-cdfaTeBWHmtq0OODiVBpb7Td6OPiaC_MqeL4rTGayyeb-Gx7uRsl-X0JiHBkF3bmyNgGT41E4JgkmW89SLzps8udC9pnQ4OT_5-iBLVUBBEyHPhpFc8aYszSpQ6ZNzUZ90GDVVVPuWM2_TfUV9T1ko-H8FmwUg3rcKhC_SwtZ_0ifTeOIAWSFm_ad33WkN5dtoZqF3HzsGCAsp8m3ulUxF63EberAdxqu-LQ4OztVeSXpzrJcFqqj6dlwKNeBiDf_-MeHfNGvTIVBqSFohr0054QEkVytnueC40aQlEVSmIm9_Me8hemk01xbyxDsRHKHbd9iRqNtAWFdnQ3FmjS57cNjZeEq_corP6gMI_vH7bHLwxtBtOTCHPXBxp6k_GUqJ8cyPe6Iepln2BrtSkuvOnGfHG2WWrbXou01awfeNTLEzpjYSp4u6dALxsZCSnkzllLxwdzk-cP70vmJlbiFBMXup_zX2fMcznx-if17FfyJe-Yq9MKUJL7q1L-2_VHVdcYKpTiB0I5PJnMnKVAE0UTsIb7SCibZ2njnA0DzVmFAPvkuc5PvCzlnbqJFyPtw6tDZmjLpNC-TK8doy7-f-vBRqZLUZPz0YfmGfGxHEyskoGQ"
+		},
+		{
+			"key": "token_darth_not_permitted_to_publish",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiYWNjNDRiZDY4MmJmNzk1YzBkZGQ5MDViZjFmMTI2MmQyZGJjMmMzYWYwNWY1NGJiMGEyYmU1NjkwZmJmY2EwOTRjMjY2NTdmMzU4MGIzZWEiLCJpYXQiOjE2Mjk0NjEyNjguODU2NzQsIm5iZiI6MTYyOTQ2MTI2OC44NTY3NDIsImV4cCI6MTY2MDk5NzI2OC44NTQ1MjUsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.aywcdXm6QlXpKvHMuWmoLb3zDno3_LbKLcQlen8nvlmA5cBRlTvNKnd7DoYS_HehLuIDnb6W23tpl0kR34FDme4erStnhX6AUKoUZF353f5-K85mJURAhyz0SzWTc6GYVyuruzRyiZ3ayDmJF7NSmJRRQCN9wNZup3vAC1HHd4if36KAx6KjaJwgwA8K3RpHtY1085FNjvrwW84jztrwqkXKtL34S5Jw-q_QQUETSpEbdx4voqfO1SAETOu54UnM4Laivj-plMc-VQkOKFzJu7ieK80ZtXC1df7bPg_M1Mhrz6kppmlwmvfSJkR3_r0J0BUivhk4520RWEd1TVjb3t_itvN9_0zYWBJiwVoRWBdR7reXBs9o0wWijuiHyJN_50yok_-EMoSR5WdDl0IIZrp1KzDs-MsNU-AXMK9q2JY4GQ6UBSJJl2SG-QgcuSgD94s9wxiY-dGk1cPkZBYpzWcELbTPbRX9sxyoGJtyXNqO4OaQ5__rVpLNScN31G41clm4U9rUrgIr5KQcZ1aKrUvM_P_a1tmB8Qub7uVU4zHCssYue-2gm0Ew6jc42mrjFSxuMTsHKuQ_mFLsEJLHQ2ZwEoURO3CAQRntSFA0B6lQKE0WxM-ZOCjbuSlmT09jzOpjAjNPw8c9tUS0ZzviF8j4V4LOr8yl7poGctw2_tA"
+		},
+		{
+			"key": "encubate_host",
+			"value": "http://127.0.0.1:8000"
+		},
+		{
+			"key": "page_limit",
+			"value": "10"
+		},
+		{
+			"key": "author_id_to_show",
+			"value": "MvGagjk85W9"
+		},
+		{
+			"key": "author_id_to_update",
+			"value": "bpJW049gKr1"
+		},
+		{
+			"key": "author_id_to_delete",
+			"value": "9W4K8wQ06Xo"
+		},
+		{
+			"key": "book_id_to_show",
+			"value": "MvGagjk85W9"
+		},
+		{
+			"key": "book_id_to_update",
+			"value": "bpJW049gKr1"
+		},
+		{
+			"key": "book_id_to_delete",
+			"value": "9W4K8wQ06Xo"
+		},
+		{
+			"key": "book_id_to_unpublish",
+			"value": "r1xjgX98742"
+		}
+	]
+}
