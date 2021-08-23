@@ -81,6 +81,11 @@ class Book  extends BaseModel
             $query->where(function ($q) use ($search){
                 $q->where('title', 'LIKE', "%{$search}%")
                     ->orWhere('description', 'LIKE', "%{$search}%");
+                
+                $q->orwhereHas('author', function ($qr) use ($search){
+                    $qr->where('first_name', 'LIKE', "%{$search}%")
+                        ->orWhere('last_name', 'LIKE', "%{$search}%");
+                });
             });
         }
     }
