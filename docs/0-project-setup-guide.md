@@ -21,4 +21,3 @@ SYSTEM FEATURES:
 
 3- Import POSTMAN collection, so you can easily see all the tested apis:
     docs/Encubate-Publisher.postman_collection.json
-
